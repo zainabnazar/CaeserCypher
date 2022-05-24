@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdio.h>
+#include <sys/time.h>
 
 using namespace std;
 
@@ -10,6 +12,9 @@ int main()
     cin.getline(message, 100);
     cout << "Enter key: ";
     cin >> key;
+    // Start measuring time
+    struct timeval begin, end;
+    gettimeofday(&begin, 0);
     for (i = 0; message[i] != '\0'; ++i)
     {
         ch = message[i];
@@ -33,5 +38,12 @@ int main()
         }
     }
     cout << "Encrypted message: " << message;
+    // Stop measuring time and calculate the elapsed time
+    gettimeofday(&end, 0);
+    long seconds = end.tv_sec - begin.tv_sec;
+    long microseconds = end.tv_usec - begin.tv_usec;
+    double elapsed = seconds + microseconds * 1e-10;
+
+    printf("Time measured: %.20f seconds.\n", elapsed);
     return 0;
 }
