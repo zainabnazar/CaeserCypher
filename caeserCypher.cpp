@@ -1,43 +1,45 @@
 #include <iostream>
 #include <stdio.h>
 #include <sys/time.h>
+#include <fstream>
+#include <string>
 
 using namespace std;
+char FileName[] = "Chapter 1 It is a truth universally acknowledged,";
 
 int main()
 {
-    char message[100], ch;
-    int i, key;
-    cout << "Enter a message to encrypt: ";
-    cin.getline(message, 100);
-    cout << "Enter key: ";
-    cin >> key;
+    char ch;
+    int i;
+    string line;
+    ifstream inMyStream(FileName);
+    int c;
     // Start measuring time
     struct timeval begin, end;
     gettimeofday(&begin, 0);
-    for (i = 0; message[i] != '\0'; ++i)
+    for (i = 0; FileName[i] != '\0'; ++i)
     {
-        ch = message[i];
+        ch = FileName[i];
         if (ch >= 'a' && ch <= 'z')
         {
-            ch = ch + key;
+            ch = ch + 2;
             if (ch > 'z')
             {
                 ch = ch - 'z' + 'a' - 1;
             }
-            message[i] = ch;
+            FileName[i] = ch;
         }
         else if (ch >= 'A' && ch <= 'Z')
         {
-            ch = ch + key;
+            ch = ch + 2;
             if (ch > 'Z')
             {
                 ch = ch - 'Z' + 'A' - 1;
             }
-            message[i] = ch;
+            FileName[i] = ch;
         }
     }
-    cout << "Encrypted message: " << message;
+    cout << "Encrypted message: " << FileName;
     // Stop measuring time and calculate the elapsed time
     gettimeofday(&end, 0);
     long seconds = end.tv_sec - begin.tv_sec;
