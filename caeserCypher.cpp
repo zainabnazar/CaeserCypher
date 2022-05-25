@@ -51,6 +51,10 @@ int main()
         }
     }
     //cout << "Encrypted message: " << story;
+    ofstream myfile;
+    myfile.open("output.txt");
+    myfile << story;
+    myfile.close();
     cout << endl
          << "Total Characters = " << tot;
     cout << endl;
@@ -59,6 +63,6 @@ int main()
     long seconds = end.tv_sec - begin.tv_sec;
     long microseconds = end.tv_usec - begin.tv_usec;
     double elapsed = seconds + microseconds * 1e-10;
-    printf("Time measured: %.9f mseconds.\n", elapsed * 1000);
+    printf("Time measured: %.6f mseconds.\n", elapsed * 1000);
     return 0;
 }
