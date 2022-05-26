@@ -29,11 +29,11 @@ Make sure to build the file by using C++ compiler, to do that in vscode:
 ./caeserCyhper
 ```
 
-2- Choose the txt file you want to encrypt (In our case, it is: prideAndPrejudice.txt)
+2- Enter the txt file you want to encrypt (In our case, it is: prideAndPrejudice.txt)
 ```
 prideAndPrejudice.txt
 ```
 
-3- Press enter and you should see the time in millisecond and the number of characters for the whole text file.
+3- Press enter and you should see the time in milliseconds and the number of characters for the whole text file.
 
 4- You can see the encrypted text in output.txt file
