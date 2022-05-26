@@ -10,3 +10,19 @@ Rewards:
 The remaining :one: point is awarded to the fastest submission.
 
 * Performance will be tested on my MacBook Pro (2019)
+
+# Build the project
+Make sure to build the file by using C++ compiler, to do that in vscode:
+
+1- install the below C++ complier
+![Screenshot 2022-05-26 at 13 40 27](https://user-images.githubusercontent.com/82872249/170489499-ca05f224-2f19-4261-87ce-871df5a3023f.png)
+2- Open caeserCyhper.cpp in vscode.
+3- Click on Terminal >> Run build task >> Choose the compiler >> You should get a successful build message in the console
+
+
+# Run the project
+1- Run this in the command line 
+./caeserCyhper
+2- Choose the txt file you want to encrypt (In our case, it is: prideAndPrejudice.txt)
+3- Press enter and you should see the time in millisecond and the number of characters for the whole text file.
+4- You can see the encrypted text in output.txt file
