@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <sys/time.h>
+#include <stdio.h>
+#include <time.h>
 
 using namespace std;
 int main()
@@ -10,9 +12,7 @@ int main()
     ifstream fp;
     cout << "Enter the Name of File: ";
     cin >> filename;
-    // Start measuring time
-    struct timeval begin, end;
-    gettimeofday(&begin, 0);
+    // Reading the text from prideAndPrejudice.txt file
     fp.open(filename, ifstream::in);
     if (!fp)
     {
@@ -27,7 +27,8 @@ int main()
     }
 
     fp.close();
-
+    // Start encryption measuring time
+    clock_t start = clock();
     for (i = 0; story[i] != '\0'; ++i)
     {
         ch = story[i];
@@ -50,19 +51,18 @@ int main()
             story[i] = ch;
         }
     }
-    //cout << "Encrypted message: " << story;
+    // End encryption measuring time and calculate the elapsed time
+    clock_t end = clock();
+    double elapsed = double(end - start) / CLOCKS_PER_SEC;
+    printf("\nTime measured: %.3f mseconds.\n", elapsed * 1000);
+    // Write the encrypted text to output.txt file
     ofstream myfile;
     myfile.open("output.txt");
     myfile << story;
     myfile.close();
+    // Print the total number of charachters
     cout << endl
          << "Total Characters = " << tot;
     cout << endl;
-    // Stop measuring time and calculate the elapsed time
-    gettimeofday(&end, 0);
-    long seconds = end.tv_sec - begin.tv_sec;
-    long microseconds = end.tv_usec - begin.tv_usec;
-    double elapsed = seconds + microseconds * 1e-10;
-    printf("Time measured: %.6f mseconds.\n", elapsed * 1000);
     return 0;
 }
