@@ -25,8 +25,9 @@ Make sure to build the file by using C++ compiler, to do that in vscode:
 
 # Run the project
 1- Run this in the command line 
-
+```
 ./caeserCyhper
+```
 
 2- Choose the txt file you want to encrypt (In our case, it is: prideAndPrejudice.txt)
 
